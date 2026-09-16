@@ -6,6 +6,7 @@ import type { PostType, Action} from './type/types';
 import { PostDataContext, PostDispatchContext} from './context/context';
 import { mockPosts } from './datas/data';
 import Detail from './components/Detail';
+import NewPosting from './components/newPosting';
 
 
 const reducer = (state: PostType[], action: Action)=>{
@@ -55,7 +56,8 @@ function App() {
         <PostDispatchContext.Provider value={{onCreatePost, onDeletePost, onUpdatePost}}>
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
-            <Route path="/detail/:id" element={<Detail></Detail>}></Route>
+            <Route path="/detail/:currentPageId" element={<Detail></Detail>}></Route>
+            <Route path="/new-Post" element={<NewPosting></NewPosting>}></Route>
           </Routes>
         </PostDispatchContext.Provider>
       </PostDataContext.Provider>

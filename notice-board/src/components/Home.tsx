@@ -2,10 +2,16 @@ import { useContext } from "react";
 import "./Home.css"; 
 import PostItem from "./PostItem";
 import { PostDataContext } from "../context/context";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = ()=>{
     const postData = useContext(PostDataContext); 
+    const nav = useNavigate(); 
+
+    const onMoveNewPosting = ()=>{
+        nav("/new-post"); 
+    }
     
 
     return (
@@ -26,7 +32,7 @@ const Home = ()=>{
                             </svg>
                         </button>
                     </form>
-                    <button className="ui-btn btn-primary">새 글 쓰기</button>
+                    <button className="ui-btn btn-primary" onClick={onMoveNewPosting}>새 글 쓰기</button>
                 </div>
                 <div className="ui-card">
                     <table className="ui-table">
